@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300;1,400;1,500;1,600;1,700&display=swap');
+    :root {
+        --color-prymary: rgb(31, 49, 184) ;
+        --color-light: #e5e5f0;
+        --color-secondari: black;
+        --color-prymars: rgb(72, 135, 177);
+
+        --color-bg: #ebc5c5;
+
+
+        --transition: 400ms  ease;
+    }
+    body{
+        background: var( --color-bg);
+        width: 100%;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    *, * ::before, * ::after{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+    body{
+        font-family: 'Poppins', sans-serif;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    header{
+        background: url(https://c.tenor.com/NVC9RDzsnVcAAAAC/wallpaper-anime.gif);
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        
+    }
+    .logo{
+        font-size: 2.5rem;
+        color: antiquewhite;
+    }
+    .headernav{
+        width: 100%;
+        height: 100px;
+    }
+    nav{
+        margin: 0 auto;
+        background: transparent;
+        border-radius: 5%;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 20% 45% 15%;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        
+    }
+    nav:not(:last-child){
+        justify-items: start;
+    }
+    nav > .btn{
+        justify-self: end;
+    }
+    .links > a{
+        text-transform: uppercase;
+        font-size: 0.85;
+        font-weight: 600;
+        color: var(--color-light);
+    }
+    .links >a:not(:first-child){
+        margin-left: 50px;
+    }
+    h1{
+        font-size: 4.5rem;
+        font-weight: 400;
+        color: var(--color-secondari);
+    }
+    h2{
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--color-secondari);
+        text-transform: capitalize;
+    }
+    h5{
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: var(--color-prymary);
+        text-transform: uppercase;
+    }
+    h4{
+        font-size: 1.4rem;
+        color: black;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    p{
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--color-prymary);
+    }
+    .btn{
+        background: var(--color-prymars);
+        padding: 0.9rem 1.4rem;
+        border-radius: 5px;
+        border-color:transparent ;
+        color: #fff;
+    }
+    .btn:hover{
+        background-image: linear-gradient(44deg, rgb(234, 4, 255), rgb(153, 7, 172)) ;
+        border: 1px solid var(--color-prymars);
+        color: var(--color-prymars);
+    }
+    .headercontent{
+        width: 100%;
+        height: calc( 80vh - 100px);
+        
+    }
+    .headertitle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 11rem;
+    }
+    .headertitle > h1{
+        font-size: 4rem;
+        font-weight: 500;
+        line-height: 1.5 ;
+        text-transform: capitalize;
+    }
+    .content_ty{
+        display: flex;  
+        margin-top: 190px;
+        flex-direction: row;
+    }
+    input{
+        width: 223px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+    main{
+        width: 100%;
+        height: max-content;
+        background-color: #f4f4f4;
+    }
+    .cardscontainer{
+        position: relative;
+        height: 500px;
+
+    }
+
+    .cardswrapper{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 200px;
+        gap: 15px;
+        position: absolute;
+        top: -4rem;
+    }
+
+    .cards{
+        background-color: #fff;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .cards:hover {
+        background: #ff414d;
+    }
+
+    .cards:hover > div > *{
+        color: #fff;
+    }
+
+    .cards:hover > div > p > span{
+        background: #fff;
+        color: #ff414d;
+    }
+
+    .cards div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+    }
+
+    .cards div i{
+        font-size: 3.5rem;
+        color: #ff414d;
+    }
+
+    .cards div h4{
+        color: var(--color-bg);
+    }
+
+    .cards div p{
+        color: var(--color-light);
+    }
+
+    .cards div p span{
+        padding: 0.1rem 0.2rem;
+        background: #f4f4f4;
+        border-radius: 0.2rem;
+        margin-right: 0.5rem;
+    }
+
+
+    .overlay{
+        position: absolute;
+        top: 35%;
+        left: 35%;
+        width: 100px;
+        height: 100px;
+        background: #ff094370;
+        border-radius: 50%;
+        transform: scale(0.8);
+        transition: var(--transition);
+        opacity: 0;
+    }
+
+    .cards:hover > .overlay{
+        transform: scale(1);
+        opacity: 1;
+    }
+    /* Listing */
+    .listingcontainer{
+        text-align: center;
+
+    }
+    .listning_wrapper{
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5rem;
+    }
+    .listning_blok{
+        height: 100%;
+        width: 23%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .listning_blok_img, .listning_blok_di{
+        width: 100%;
+        height: 50%;
+        background-color: #ebc5c5;
+        overflow: hidden;
+    }
+    .listning_blok_img img{
+        height: 100%;
+        width: 100%;
+    }
+    .listning_blok_di{
+        padding: 3rem;
+    }
+    .listning_blok_di> *:not(first child){
+        margin-top: 0.4rem;
+    }
+    .listning_offer{
+        width: 112%;
+        height: 300px;
+        display: flex;
+        margin-top: 5rem;
+        background-color: #ff414d;
+    }
+    .co1{
+        background: url(https://images.unsplash.com/photo-1473951574080-01fe45ec8643?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHZpbGxhZ2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30%;
+        height: 100%
+    }
+    .listning_offer .co2{
+        text-align: left;
+        width: 70%;
+        height: 100%;
+        position: relative;
+        padding-left: 50px;
+    }
+
+    .listning_offer .co2 >*{
+        color: #fff;
+    }
+    .listning_offer .co2 >h4{
+        margin-top: 80px;
+    }
+    .listning_offer .co2 >a{
+        position: absolute;
+        top: 50%;
+        left: 70%;
+        transform: translateY(-50%);
+    }
+</style>
+<body>
+    <header>
+        <div class="headercontainer container" id="home">
+            <div class="headernav">
+                <nav>
+                    <div class="logo"> this is deep</div>
+                    <div class="links">
+                        <a href="#home">home</a>
+                        <a href="#about">about</a>
+                        <a href="#listing">listing</a>
+                        <a href="#blog">blog</a>
+                        <a href="#contact">contact</a>
+                    </div>
+                    <a href="" class="btn"> + add listing</a>
+                </nav>
+            </div>
+            <div class="headercontent" >
+                <div class="headertitle">
+                    <h1>Eahp it's history</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam est quia quod similique magnam dicta.</p>
+                    <div class="content_ty">
+                        <input list="browser" placeholder="What are you looking for?" name="browser" id="">
+                        <input list="browser" placeholder="Search Location" name="browser" id="">
+                        <input list="Categories" placeholder="All Categories" name="Categories" id="Categories">
+                        <button class="btn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="cardscontainer container" >
+            <div class="cardswrapper">
+                <div class="cards">
+                    <div>
+                        <i class='bx bxs-bowl-hot'></i>
+                        <h4>Food & Drinks</h4>
+                        <p><span>103</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-hotel'></i>
+                        <h4>Hotels</h4>
+                        <p><span>40</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bxs-shopping-bags'></i>
+                        <h4>Shopping</h4>
+                        <p><span>100</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bxs-spa'></i>
+                        <h4>Beauty</h4>
+                        <p><span>36</span>listings</p>
+                    </div>
+                <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-dumbbell'></i>
+                        <h4>Fitness</h4>
+                        <p><span>30</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-wine'></i>
+                        <h4>Bar & Club</h4>
+                        <p><span>12</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-meteor'></i>
+                        <h4>Games</h4>
+                        <p><span>103</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-map'></i>
+                        <h4>Places</h4>
+                        <p><span>40</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bxl-postgresql'></i>
+                        <h4>Circus</h4>
+                        <p><span>100</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bxs-mask'></i>
+                        <h4>Theater</h4>
+                        <p><span>36</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bx-cycling'></i>
+                        <h4>Sport</h4>
+                        <p><span>30</span>listings</p>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="cards">
+                    <div>
+                        <i class='bx bxs-ambulance'></i>
+                        <h4>Health</h4>
+                        <p><span>12</span>listings</p>
+                    </div>
+                    <div class="verlay"></div>
+                </div>
+            </div>
+        </section>
+        <section class="listingcontainer container">
+            <h5> our listing</h5>
+            <h2>popular listing </h2>
+            <div class="listning_wrapper">
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1601351841251-766245326eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amFwYW5lc2UlMjByZXN0YXVyYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>FOOD & DRINKS</h5>
+                        <h4>Japanese Restaurant</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>HOTEL</h5>
+                        <h4>Harbor Lights Hotel</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2hvcHBpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>SHOPPING</h5>
+                        <h4>MS Center Mall of Asia</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZpdG5lc3MlMjBneW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>GYM FITNESS</h5>
+                        <h4>Maxout Fitness Gym</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789<p>
+                    </div>
+                </div>
+            </div>
+            <div class="listning_offer">
+                <div class="co1"></div>
+                <div class="co2">
+                    <h4>SPECIAL OFFERS</h4>
+                    <h2>We Have Special Offers <br> Every Now and Then</h2>
+                    <a href="" class="btn">Show Special Offers</a>
+                </div>
+            </div>
+
+            
+            <!------------------ our listning two -------------->
+            <h5> our listing</h5>
+            <h2>popular listing </h2>
+            <div class="listning_wrapper"> 
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1601351841251-766245326eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amFwYW5lc2UlMjByZXN0YXVyYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt=""></div>
+                    <div class="listning_blok_di">
+                        <h5>FOOD & DRINKS</h5>
+                        <h4>Japanese Restaurant</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>HOTEL</h5>
+                        <h4>Harbor Lights Hotel</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2hvcHBpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>SHOPPING</h5>
+                        <h4>MS Center Mall of Asia</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZpdG5lc3MlMjBneW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>GYM FITNESS</h5>
+                        <h4>Maxout Fitness Gym</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789<p>
+                    </div>
+                </div>
+            </div>
+            <div class="listning_wrapper">
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1601351841251-766245326eee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8amFwYW5lc2UlMjByZXN0YXVyYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" alt="">
+                        
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>FOOD & DRINKS</h5>
+                        <h4>Japanese Restaurant</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>HOTEL</h5>
+                        <h4>Harbor Lights Hotel</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c2hvcHBpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>SHOPPING</h5>
+                        <h4>MS Center Mall of Asia</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789</p>
+                    </div>
+                </div>
+                <div class="listning_blok">
+                    <div class="listning_blok_img">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZpdG5lc3MlMjBneW18ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                    <div class="listning_blok_di">
+                        <h5>GYM FITNESS</h5>
+                        <h4>Maxout Fitness Gym</h4>
+                        <p> <span><i class='bx bx-map-pin'></i></span> Suite 721 New York NY 10016 </p>
+                        <p> <span><i class='bx bx-phone-call'></i></span> +00 123 456 789<p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
